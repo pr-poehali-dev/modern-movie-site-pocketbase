@@ -8,6 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import Icon from '@/components/ui/icon';
+import RatingComponent from '@/components/RatingComponent';
 import { Video, Episode, Comment, Genre, collections, pb, authStore } from '@/lib/pocketbase';
 import { toast } from '@/hooks/use-toast';
 
@@ -359,10 +360,13 @@ const WatchPage: React.FC = () => {
               </div>
 
               {video.description && (
-                <div className="prose prose-sm max-w-none text-muted-foreground" 
+                <div className="prose prose-sm max-w-none text-muted-foreground mb-6" 
                      dangerouslySetInnerHTML={{ __html: video.description }} 
                 />
               )}
+
+              {/* Rating Component */}
+              <RatingComponent videoId={id!} />
             </div>
 
             {/* Episodes (for series) */}
